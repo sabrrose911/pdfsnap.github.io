@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDFSnap | Full-Featured PDF Toolkit</title>
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<!-- PDF-Lib for client-side PDF processing -->
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+<!-- Tesseract.js for OCR -->
+<script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
+
+<!-- Your main JavaScript -->
+<script src="assets/js/main.js"></script>
+<body>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        <div class="nav-items">
+            <a href="#convert"><i class="fas fa-exchange-alt"></i> Convert</a>
+            <a href="#merge"><i class="fas fa-merge"></i> Merge</a>
+            <a href="#split"><i class="fas fa-cut"></i> Split</a>
+            <a href="#compress"><i class="fas fa-compress"></i> Compress</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Convert Section -->
+        <section id="convert" class="tool-section">
+            <h2><i class="fas fa-file-export"></i> Conversion Tools</h2>
+            <div class="tool-grid">
+                <!-- PDF to Word -->
+                <div class="tool-card">
+                    <input type="file" accept=".pdf" id="pdfToWord">
+                    <button onclick="convert('word')"><i class="fas fa-file-word"></i> PDF to Word</button>
+                </div>
+                
+                <!-- PDF to PowerPoint -->
+                <div class="tool-card">
+                    <input type="file" accept=".pdf" id="pdfToPPT">
+                    <button onclick="convert('ppt')"><i class="fas fa-file-powerpoint"></i> PDF to PPT</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Merge/Split Section -->
+        <section id="merge-split" class="tool-section">
+            <h2><i class="fas fa-copy"></i> Organization Tools</h2>
+            <div class="tool-grid">
+                <!-- Merge -->
+                <div class="tool-card">
+                    <input type="file" accept=".pdf" id="mergeFiles" multiple>
+                    <button onclick="mergePDFs()"><i class="fas fa-merge"></i> Merge PDFs</button>
+                </div>
+                
+                <!-- Split -->
+                <div class="tool-card">
+                    <input type="file" accept=".pdf" id="splitFile">
+                    <input type="text" id="pages" placeholder="Pages (e.g., 1-3,5)">
+                    <button onclick="splitPDF()"><i class="fas fa-cut"></i> Split PDF</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compress Section -->
+        <section id="compress" class="tool-section">
+            <h2><i class="fas fa-file-archive"></i> Compression</h2>
+            <div class="tool-card">
+                <input type="file" accept=".pdf" id="compressFile">
+                <button onclick="compressPDF()"><i class="fas fa-compress"></i> Compress PDF</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/pdf.worker.js"></script>
+</body>
+</html>
